@@ -1,0 +1,38 @@
+<script>
+  /**
+   * Đề bài: Nhập vào một số dương nguyên k, in ra danh sách k số nguyên tố đầu tiên.
+   */
+  function main() {
+    const k = Number(prompt("Nhập dãy số, ngăn cách nhau bằng dấu cách, kết thúc bằng số 0", 1))
+    // i là biến đếm xem đã tìm thấy bao nhiêu số nguyên tố
+
+    let i = 0
+    let number = 2
+    while (true) {
+      if (isNguyenTo(number)) {
+        console.log(number)
+        i++
+      }
+      if (i >= k) {
+        break
+      }
+      number++
+    }
+  }
+
+  function isNguyenTo(n) {
+    if (n <= 1) {
+      return false
+    }
+    let isNguyenTo = true
+
+    for (let i = 2; i < n; i++) {
+      if (n % i == 0) {
+        return false
+      }
+    }
+
+    return isNguyenTo
+  }
+  main()
+</script>

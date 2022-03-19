@@ -1,0 +1,44 @@
+<script>
+  /**
+   * Đề bài: Nhập vào một số nguyên k, Tính và in ra trung bình cộng của các số nguyên tố nhỏ hơn hoặc bằng k. Kết quả làm tròn tới 3 chữ số thập phân.
+   */
+  function main() {
+    const k = Number(prompt("Nhập dãy số, ngăn cách nhau bằng dấu cách, kết thúc bằng số 0", 1))
+
+    let numbers = ''
+    for (let i = k; i > 1; i--) {
+      if (isNguyenTo(i)) {
+        numbers += String(i)
+      }
+    }
+
+    let sum = 0
+    let count = 0
+    for (let i = 0; i < numbers.length; i++) {
+      sum += Number(numbers.charAt(i))
+      count++
+    }
+
+    // Math.round() là hàm làm tròn số
+    // Chi tiết xem tại: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round
+    const average = Math.round(sum/count * 100) / 100
+
+    console.log({ average })
+  }
+
+  function isNguyenTo(n) {
+    if (n <= 1) {
+      return false
+    }
+    let isNguyenTo = true
+
+    for (let i = 2; i < n; i++) {
+      if (n % i == 0) {
+        return false
+      }
+    }
+
+    return isNguyenTo
+  }
+  main()
+</script>
