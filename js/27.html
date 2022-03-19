@@ -1,0 +1,46 @@
+<script>
+  /**
+   * Đề bài: Cho một dãy số nguyên, mỗi số cách nhau bởi một dấu cách.
+   * Tìm số lớn nhất, nhỏ nhất trong dãy và số lượng số trong dãy
+   * Ví dụ
+   * input: 7 6 5 4 3 2
+   * output: - số lớn nhất 7, số nhỏ nhất, 2, tổng số có trong dãy 6
+  */
+  function main() {
+    const n = String(prompt("Nhập dãy số, ngăn cách nhau bằng dấu cách, kết thúc bằng số 0", 1))
+
+    // Số lớn nhất trong dãy cần tìm
+    let max = Number(n.charAt(0))
+
+    // Số nhỏ nhất trong dãy cần tìm
+    let min = Number(n.charAt(0))
+
+    // Tổng số có trong dãy, không tính số 0 ở cuỗi dãy
+    let count = 0
+
+    for (let i = 0; i < n.length; i++) {
+      // Dãy ngăn cách nhau bằng dấu cách
+      // nghĩa là tại các vị trí lẻ, đều là dấu cách
+      // mà dấu cách thì bỏ qua
+      if (i % 2 != 0) {
+        continue
+      }
+
+      count++
+
+      if (max < Number(n.charAt(i))) {
+        max = Number(n.charAt(i))
+      }
+      if (min > Number(n.charAt(i))) {
+        min = Number(n.charAt(i))
+      }
+    }
+
+    console.log({
+      max,
+      min,
+      count,
+    })
+  }
+  main()
+</script>

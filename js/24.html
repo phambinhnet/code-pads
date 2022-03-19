@@ -1,0 +1,19 @@
+<script>
+  /**
+   * Đề bài: Nhập vào một số nguyên n (0 < n <= 10 tỷ). In ra số đảo ngược của số n.
+   * Ví dụ
+   * input: 123
+    * output: 321
+   */
+  function main() {
+    const n = String(prompt("Nhập số n", 1))
+    let soDaoNguoc = ''
+    for (i = n.length; i >= 0; i--) {
+      // n.charAt(i) là hàm giúp bạn lấy ra ký tự thứ i trong string n
+      // chi tiết tham khảo tại https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charAt
+      soDaoNguoc += n.charAt(i)
+    }
+    console.log({ soDaoNguoc })
+  }
+  main()
+</script>

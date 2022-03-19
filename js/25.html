@@ -1,0 +1,24 @@
+<script>
+  /**
+   * Đề bài: Nhập vào một số nguyên dương n. Tìm chữ số lớn nhất trong các chữ số mà n có.
+   * Ví dụ
+   * input: 132
+    * output: 3
+    */
+  function main() {
+    const n = String(prompt("Nhập số n", 1))
+    // Giả sử số max là số nằm ở vị trí đầu tiên
+    let max = n.charAt(0)
+
+    for (i = 1; i < n.length; i++) {
+      // Nếu max nhỏ hơn bất kỳ số nào nữa
+      // thì max gán lại bằng số đó
+      if (max < n.charAt(i)) {
+        max = n.charAt(i)
+      }
+    }
+
+    console.log({ max })
+  }
+  main()
+</script>
