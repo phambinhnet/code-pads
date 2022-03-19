@@ -1,0 +1,26 @@
+<script>
+  /**
+   * Đề bài: Nhập vào mảng gồm n số nguyên. Tìm số lớn nhất và nhỏ nhất trong mảng.
+   */
+  function main() {
+    const input = prompt("Nhập dãy số nguyên, ngăn cách bằng dấu cách", 0)
+    // Split là hàm tách chuỗi thành mảng
+    // chi tiết xem tại: https://phambinh.net/bai-viet/cac-ham-lam-viec-voi-string-trong-javascript/#split
+    const numbers = input.split(' ')
+
+    let max = numbers[0]
+    let min = numbers[0]
+
+    for (let i = 0; i < numbers.length; i++) {
+      if (max < numbers[i]) {
+        max = numbers[i]
+      }
+      if (min > numbers[i]) {
+        min = numbers[i]
+      }
+    }
+
+    console.log({ max, min })
+  }
+  main()
+</script>

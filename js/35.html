@@ -1,0 +1,33 @@
+<script>
+    /**
+     * Đề bài: Cho một mảng n số nguyên. Tìm và in ra các số nguyên tố trong mảng.
+     */
+    function main() {
+      const input = prompt("Nhập dãy số nguyên, ngăn cách bằng dấu cách", 0)
+      // Split là hàm tách chuỗi thành mảng
+      // chi tiết xem tại: https://phambinh.net/bai-viet/cac-ham-lam-viec-voi-string-trong-javascript/#split
+      const numbers = input.split(' ')
+
+      for (let i = 0; i < numbers.length; i++) {
+        if (isNguyenTo(numbers[i])) {
+          console.log(numbers[i])
+        }
+      }
+    }
+
+    function isNguyenTo(n) {
+      if (n <= 1) {
+        return false
+      }
+      let isNguyenTo = true
+
+      for (let i = 2; i < n; i++) {
+        if (n % i == 0) {
+          return false
+        }
+      }
+
+      return isNguyenTo
+    }
+    main()
+  </script>

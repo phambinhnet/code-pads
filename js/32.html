@@ -1,0 +1,24 @@
+<script>
+  /**
+   * Đề bài: Nhập vào mảng gồm n số nguyên. Tìm các thứ tự (vị trí) của số lớn nhất trong mảng.
+   */
+  function main() {
+    const input = prompt("Nhập dãy số nguyên, ngăn cách bằng dấu cách", 0)
+    // Split là hàm tách chuỗi thành mảng
+    // chi tiết xem tại: https://phambinh.net/bai-viet/cac-ham-lam-viec-voi-string-trong-javascript/#split
+    const numbers = input.split(' ')
+
+    let maxIndex = 0
+    let max = numbers[maxIndex]
+
+    for (let i = 0; i < numbers.length; i++) {
+      if (max < numbers[i]) {
+        maxIndex = i
+        max = numbers[i]
+      }
+    }
+
+    console.log({ maxIndex })
+  }
+  main()
+</script>
