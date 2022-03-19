@@ -1,0 +1,27 @@
+<script>
+  /**
+   * Đề bài: Nhập vào số nguyên a, tính a mũ 2, a mũ 3, a mũ 4
+   */
+  function main() {
+    const a = parseInt(prompt("Nhập số a", 0))
+    const a2 = tinhSoMu(a, 2)
+    const a3 = tinhSoMu(a, 3)
+    const a4 = tinhSoMu(a, 4)
+
+    console.log({
+      a2,
+      a3,
+      a4,
+    })
+  }
+
+  function tinhSoMu (a, n) {
+    let result = a
+    for (let i = 2; i <= n; i++) {
+      result = result * a
+    }
+    return result
+  }
+
+  main()
+</script>

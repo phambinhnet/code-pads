@@ -1,0 +1,22 @@
+<script>
+  /**
+   * Đề bài: Viết chương trình nhập vào hai số nguyên a, b và in ra màn hình kết quả của các phép tính cộng, trừ, nhân, chia của hai số đó.
+   * Riêng kết quả của phép chia thì làm tròn dến số thập phân thứ 2
+   */
+  function main() {
+    const a = Number(prompt('Nhập số a', 0))
+    const b = Number(prompt('Nhập số b', 0))
+    const tong = a + b
+    const hieu = a - b
+    const tich = a * b
+    const thuong = a / b
+
+    console.log({
+      tong,
+      hieu,
+      tich,
+      thuong,
+    })
+  }
+  main()
+</script>

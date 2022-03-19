@@ -1,0 +1,41 @@
+<script>
+  /**
+   * Đề bài: Viết chương trình để tính cước điện thoại bàn cho một hộ gia đình với các thông số như sau:
+   * Phí thuê bao bắt buộc là 25 nghìn.
+   * 600 đồng cho mỗi gọi của 50 phút đầu tiên.
+   * 400 đồng cho mỗi phút gọi của 150 phút tiếp theo.
+   * 200 đồng cho bất kỳ mỗi phút nào sau 200 phút đầu tiên.
+   */
+  function main() {
+    const tongSoPhut = Number(prompt("Nhập số phút", 0))
+    let tongTien = 25000
+    let soPhutConLai = tongSoPhut
+
+    // 50 phút đầu tiên
+    if (soPhutConLai >= 50) {
+      tongTien += 50 * 600
+      soPhutConLai = soPhutConLai - 50
+    } else {
+      tongTien += soPhutConLai * 600
+      soPhutConLai = 0
+    }
+
+    // 150 phút tiếp theo
+    if (soPhutConLai >= 150) {
+      tongTien += 150 * 400
+      soPhutConLai = soPhutConLai - 150
+    } else {
+      tongTien += soPhutConLai * 400
+      soPhutConLai = 0
+    }
+
+    // từ 200 phút đầu tiên trở đi
+    // lưu ý: đề bài hơi lừa chút, hãy để ý đề bài ở chỗ "50 phút đầu tiên, 150 phút tiếp theo, 200 phút đầu tiên"
+    tongTien += soPhutConLai * 200
+
+    console.log({
+      tongTien
+    })
+  }
+  main()
+</script>

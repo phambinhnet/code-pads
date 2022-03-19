@@ -1,0 +1,20 @@
+<script>
+  /**
+   * Đề bài: Viết chương trình nhập vào bán kính hình cầu, tính và in ra diện tích, thể tích của hình cầu đó.
+   * Biết công thức tính diện tích hình cầu là: 4πR^2
+   * Biết công thức tính thể tích hình cầu là: (4/3)πR^3
+   * Lấy π = 3.14
+   */
+  function main() {
+    const banKinhHinhCau = Number(prompt("Nhập bán kính hình cầu", 0))
+    const pi = 3.14
+    const dienTich = 4 * pi * banKinhHinhCau * banKinhHinhCau
+    const theTich = (4/3) * pi * banKinhHinhCau * banKinhHinhCau * banKinhHinhCau
+
+    console.log({
+      dienTich,
+      theTich,
+    })
+  }
+  main()
+</script>

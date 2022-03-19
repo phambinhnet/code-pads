@@ -1,0 +1,41 @@
+<script>
+  /**
+   * Đề bài: Viết chương trình nhập vào ba số nguyên a, b, c lần lượt là ngay tháng năm.
+   * In ra màn hình theo định dạng dd/mm/yyyy
+   *
+   * Ví dụ:
+   * input: a b c lần lượt là 5 6 2018
+   * output: 05/06/2018
+   */
+  function main() {
+    let ngay = Number(prompt("Nhập ngày", 1))
+    let thang = Number(prompt("Nhập ngày", 1))
+    let nam = Number(prompt("Nhập năm", 1))
+
+    ngay = fillZero(ngay, 2)
+    thang = fillZero(thang, 2)
+    nam = fillZero(nam, 4)
+
+    // Cú pháp template string trong js
+    // Chi tiết tham khảo tại: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals?retiredLocale=vi
+    console.log(`${ngay}/${thang}/${nam}`)
+  }
+
+  /**
+   * Hàm sẽ điền số 0 vào trước number, sao cho number có độ dài length
+   * VD, number: 1, length: 2 => 01
+   * VD, number: 1, length: 3 => 001
+   */
+   function fillZero(number, length) {
+    // Ép kiểu dữ liệu bất kỳ về dạng string
+    const stringNumber = String(number)
+    const numberOfZero = length - stringNumber.length
+    let finalNumber = stringNumber
+    for (i = 1; i <= numberOfZero; i++) {
+      finalNumber = '0' + finalNumber
+    }
+
+    return finalNumber
+  }
+  main()
+</script>

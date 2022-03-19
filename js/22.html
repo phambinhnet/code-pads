@@ -1,0 +1,29 @@
+<script>
+  /**
+   * Đề bài: Viết chương trình kiểm tra 1 số có là số nguyên tố không? Số nguyên tố là số nguyên dương có duy nhất 2 ước là 1 và chính nó. Ví dụ số 2, 3, 5,…
+   */
+  function main() {
+    const n = Number(prompt("Nhập số cần kiểm tra", 1))
+    if (isNguyenTo(n)) {
+      console.log('TRUE')
+    } else {
+      console.log('FALSE')
+    }
+  }
+
+  function isNguyenTo(n) {
+    if (n <= 1) {
+      return false
+    }
+    let isNguyenTo = true
+
+    for (let i = 2; i < n; i++) {
+      if (n % i == 0) {
+        return false
+      }
+    }
+
+    return isNguyenTo
+  }
+  main()
+</script>

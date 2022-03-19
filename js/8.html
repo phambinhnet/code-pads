@@ -1,0 +1,47 @@
+<script>
+  /**
+   * Đề bài: Viết chương trình nhập vào số giây, rồi đổi sang định dạng "hh:mm:ss"
+   * Ví dụ
+   * Input: 7826
+   * Output: 02:10:26
+   */
+  function main() {
+    const timeBySeconds = Number(prompt("Nhập vào số giây", 1))
+    let timeRemaining = timeBySeconds
+
+    // Math.floor là hàm làm tròn xuống
+    // Chi tiết xem tại: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor
+
+    let hours = Math.floor(timeRemaining / 60 / 60)
+    timeRemaining = timeRemaining - hours * 60 * 60
+
+    let minutes = Math.floor(timeRemaining / 60)
+    timeRemaining = timeRemaining - minutes * 60
+
+    let seconds = timeRemaining
+
+    hours = fillZero(hours, 2)
+    minutes = fillZero(minutes, 2)
+    seconds = fillZero(seconds, 2)
+
+    console.log(`${hours}:${minutes}:${seconds}`)
+  }
+
+  /**
+   * Hàm sẽ điền số 0 vào trước number, sao cho number có độ dài length
+   * VD, number: 1, length: 2 => 01
+   * VD, number: 1, length: 3 => 001
+   */
+   function fillZero(number, length) {
+    // Ép kiểu dữ liệu bất kỳ về dạng string
+    const stringNumber = String(number)
+    const numberOfZero = length - stringNumber.length
+    let finalNumber = stringNumber
+    for (i = 1; i <= numberOfZero; i++) {
+      finalNumber = '0' + finalNumber
+    }
+
+    return finalNumber
+  }
+  main()
+</script>

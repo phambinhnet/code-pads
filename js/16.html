@@ -1,0 +1,14 @@
+<script>
+  /**
+   * Đề bài: Nhập vào một số nguyên không âm n, và in ra n giai thừa
+  */
+  function main() {
+    const n = Number(prompt("Số n", 1))
+    let tong = 1
+    for (let i = n; i >= 1; i--) {
+      tong = tong * i
+    }
+    console.log({ tong })
+  }
+  main()
+</script>

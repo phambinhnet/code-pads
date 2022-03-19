@@ -1,0 +1,22 @@
+<script>
+  /**
+   * Đề bài: Nhập vào ba số nguyên a, b, c. In ra màn hình số lớn nhất
+   */
+  function main() {
+    const a = Number(prompt("Nhập a", 0))
+    const b = Number(prompt("Nhập b", 0))
+    const c = Number(prompt("Nhập c", 0))
+
+    let max = a
+    if (max < b) {
+      max = b
+    }
+
+    if (max < c) {
+      max = c
+    }
+
+    console.log({ max })
+  }
+  main()
+</script>

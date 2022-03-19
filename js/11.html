@@ -1,0 +1,38 @@
+<script>
+  /**
+   * Đề bài: Viết chương trình nhập vào 3 số a, b, c. Kiểm tra xem a, b, c có phải là 3 cạnh của tam giác không?
+   * Biết rằng, để ba số là cạnh của tam giác, thì tổng hai cạnh bất kỳ luôn lớn hơn cạnh còn lại.
+   * Nếu là 3 cạnh của tam giác thì tính diện tích của tam giác theo công thức:
+   * S = Căn bậc hai của (p(p - a)(p - b)(p - c)), với p là nửa chu vi tam giác, theo công thức p = (a + b + c) / 2
+   * Nếu không phải là cạnh của tam giác, in ra chữ No
+   */
+  function main() {
+    const a = Number(prompt("Nhập a", 0))
+    const b = Number(prompt("Nhập b", 0))
+    const c = Number(prompt("Nhập c", 0))
+
+    if (isTamGiac(a, b, c)) {
+      const p = (a + b + c) / 2
+      // Math.sqrt là hàm tính căn bậc 2
+      // chi tiết xem tại https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/sqrt
+      const dienTich = Math.sqrt(p * (p - a) * (p - b) *(p - c))
+      console.log({ dienTich })
+    } else {
+      console.log('No')
+    }
+  }
+
+  function isTamGiac(a, b, c) {
+    if (a + b > c
+      || a + c > b
+      || b + c > a
+    ) {
+      // Khi gặp return, function sẽ kết thúc luôn
+      return true
+    }
+
+    return false
+  }
+
+  main()
+</script>

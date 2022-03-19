@@ -1,0 +1,25 @@
+<script>
+  /**
+   * Đề bài: Hãy nhập vào một số là 1 tháng trong năm,
+   * in ra xem tháng đó có bao nhiêu ngày. Coi như tháng 2 luôn có 28 ngày.
+   * Nếu không tìm thấy tháng hợp lệ thì in ra "NOT FOUND"
+   */
+  function main() {
+    const m = Number(prompt("Nhập tháng", 1))
+    const datesCount = 'NOT FOUND'
+    switch (m) {
+      case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+        datesCount = 31
+        break
+      case 4: case 6: case 9: case 11:
+        datesCount = 30
+        break
+      case 2:
+        datesCount = 28
+        break
+    }
+
+    console.log(datesCount)
+  }
+  main()
+</script>
