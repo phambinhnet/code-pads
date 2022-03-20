@@ -1,0 +1,43 @@
+<script>
+  /**
+   * Đề bài: Cho một mảng n số nguyên. Tìm và in ra các số chính phương trong mảng.
+   * Nếu dãy không có số phù hợp, in ra “NOT FOUND”
+   */
+  function main() {
+    const input = prompt("Nhập dãy số nguyên, ngăn cách bằng dấu cách", 0)
+    // Split là hàm tách chuỗi thành mảng
+    // chi tiết xem tại: https://phambinh.net/bai-viet/cac-ham-lam-viec-voi-string-trong-javascript/#split
+    const numbers = input.split(' ')
+    let sum = 0
+    let count = 0
+    for (let i = 0; i < numbers.length; i++) {
+      if (isSoChinhPhuong(numbers[i])) {
+        sum += Number(numbers[i])
+        count++
+      }
+    }
+
+    if (count === 0) {
+      console.log('NOT FOUND')
+      return
+    }
+
+    const output = sum / count
+    console.log(output)
+  }
+
+  function isSoChinhPhuong(n) {
+    if (n < 0) {
+      return false
+    }
+
+    // Math.floor() là hàm làm tròn xuống trong JS
+    // chi tiết xem tại: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor
+    // Math.sqrt() là hàm lấy số căn bậc hai
+    // chi tiết xem tại: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/sqrt
+    const canBacHai = Math.floor(Math.sqrt(n))
+
+    return canBacHai * canBacHai == n
+  }
+  main()
+</script>

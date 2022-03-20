@@ -1,0 +1,36 @@
+<script>
+    /**
+     * Đề bài: Cho một mảng n số nguyên. In ra trên 2 dòng lần lượt là các số âm và số dương của dãy.
+     * Nếu dãy không có số phù hợp in ra “NOT FOUND”
+     */
+    function main() {
+      const input = prompt("Nhập dãy số nguyên, ngăn cách bằng dấu cách", 0)
+      // Split là hàm tách chuỗi thành mảng
+      // chi tiết xem tại: https://phambinh.net/bai-viet/cac-ham-lam-viec-voi-string-trong-javascript/#split
+      const numbers = input.split(' ')
+      const soAm = []
+      const soDuong = []
+
+      for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] < 0) {
+          soAm.push(numbers[i])
+        }
+        if (numbers[i] > 0) {
+          soDuong.push(numbers[i])
+        }
+      }
+
+      if (soAm.length > 0) {
+        console.log({ soAm })
+      } else {
+        console.log('Số âm: NOT FOUND')
+      }
+
+      if (soDuong.length > 0) {
+        console.log({ soDuong })
+      } else {
+        console.log('Số dương: NOT FOUND')
+      }
+    }
+    main()
+  </script>

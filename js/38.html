@@ -1,0 +1,30 @@
+<script>
+    /**
+     * Đề bài: Cho một mảng n số nguyên. Tìm và in ra số âm lớn nhất trong mảng.
+     * Nếu dãy không có số phù hợp, in ra “NOT FOUND”
+     */
+    function main() {
+      const input = prompt("Nhập dãy số nguyên, ngăn cách bằng dấu cách", 0)
+      // Split là hàm tách chuỗi thành mảng
+      // chi tiết xem tại: https://phambinh.net/bai-viet/cac-ham-lam-viec-voi-string-trong-javascript/#split
+      const numbers = input.split(' ')
+      let soAm = undefined
+
+      for (let i = 0; i < numbers.length; i++) {
+        if (
+          numbers[i] < 0
+          && (maxAm > numbers[i] || maxAm === undefined)
+        ) {
+          maxAm = numbers[i]
+        }
+      }
+
+      if (maxAm == undefined) {
+        console.log('NOT FOUND')
+        return
+      }
+
+      console.log(maxAm)
+    }
+    main()
+  </script>
