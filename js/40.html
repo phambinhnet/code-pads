@@ -1,0 +1,32 @@
+<script>
+  /**
+   * Đề bài: Cho một mảng n số nguyên. Sắp xếp các dãy số trong mảng theo chiều tăng dần
+   */
+  function main() {
+    // const input = prompt("Nhập dãy số nguyên, ngăn cách bằng dấu cách", 0)
+    const input = '5 4 3 1 2'
+    // Split là hàm tách chuỗi thành mảng
+    // chi tiết xem tại: https://phambinh.net/bai-viet/cac-ham-lam-viec-voi-string-trong-javascript/#split
+    const numbers = input.split(' ')
+
+    // Thuật toán sử dụng trong bài này là bubble sort
+    // Chi tiết xem tại: https://phambinh.net/bai-viet/thuat-toan-sap-xep-noi-bot-bubble-sort/
+    for (let j = 0; j < numbers.length - 1; j++) {
+      let sw = false
+      for (let i = 0; i < numbers.length - j - 1; i++) {
+        if (numbers[i] > numbers[i + 1]) {
+          const temp = numbers[i]
+          numbers[i] = numbers[i + 1]
+          numbers[i + 1] = temp
+          sw = true
+        }
+      }
+      if (!sw) {
+        break
+      }
+    }
+
+    console.log({ numbers })
+  }
+  main()
+</script>
