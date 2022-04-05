@@ -1,0 +1,45 @@
+<script>
+    /**
+     * Đề bài: Cho một mảng n số nguyên. Tìm 3 số lớn nhất trong mảng, 3 số không được trùng nhau
+     */
+    function main() {
+      const input = prompt("Nhập dãy số nguyên, ngăn cách bằng dấu cách", 0)
+      // Split là hàm tách chuỗi thành mảng
+      // chi tiết xem tại: https://phambinh.net/bai-viet/cac-ham-lam-viec-voi-string-trong-javascript/#split
+      const numbers = input.split(' ').map(Number)
+
+      // lần lượt là các số lớn nhất, lớn thứ 2, lớn thứ 3 trong mảng
+      let max1 = numbers[0], max2, max3
+
+      for (let i = 0; i < numbers.length; i++) {
+        if (max1 < numbers[i]) {
+          max1 = numbers[i]
+        }
+      }
+
+      for (let i = 0; i < numbers.length; i++) {
+        if (
+          (max2 === undefined || max2 < numbers[i])
+          && max1 > numbers[i]
+        ) {
+          max2 = numbers[i]
+        }
+      }
+
+      for (let i = 0; i < numbers.length; i++) {
+        if (
+          (max3 === undefined || max3 < numbers[i])
+          && max2 > numbers[i]
+        ) {
+          max3 = numbers[i]
+        }
+      }
+
+      console.log({
+        max1,
+        max2,
+        max3,
+      })
+    }
+    main()
+  </script>

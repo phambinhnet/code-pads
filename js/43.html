@@ -1,0 +1,32 @@
+<script>
+  /**
+   * Đề bài: Cho một mảng n số nguyên. Tìm số xuất hiện nhiều nhất trong mảng.
+   */
+  function main() {
+    const input = prompt("Nhập dãy số nguyên, ngăn cách bằng dấu cách", 0)
+    // Split là hàm tách chuỗi thành mảng
+    // chi tiết xem tại: https://phambinh.net/bai-viet/cac-ham-lam-viec-voi-string-trong-javascript/#split
+    const numbers = input.split(' ').map(Number)
+    const numbersToTimes = {}
+    for (let i = 0; i < numbers.length; i++) {
+      if (numbersToTimes[numbers[i]] === undefined) {
+        numbersToTimes[numbers[i]] = 0
+      }
+
+      numbersToTimes[numbers[i]] = numbersToTimes[numbers[i]] + 1
+    }
+
+    let numberMaxTimes = undefined
+    let maxTimes = undefined
+
+    for (let number in numbersToTimes) {
+      const times = numbersToTimes[number]
+      if (maxTimes == undefined || maxTimes < numbersToTimes[number]) {
+        maxTimes = numbersToTimes[number]
+        numberMaxTimes = number
+      }
+    }
+    console.log(numberMaxTimes, maxTimes)
+  }
+  main()
+</script>

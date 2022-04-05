@@ -1,0 +1,32 @@
+<script>
+  /**
+   * Đề bài: Cho một mảng n số nguyên.
+   * Đếm xem trong mảng có bao nhiêu số khác nhau và mỗi số xuất hiện bao nhiêu lần trong mảng
+   */
+  function main() {
+    const input = prompt("Nhập dãy số nguyên, ngăn cách bằng dấu cách", 0)
+    // Split là hàm tách chuỗi thành mảng
+    // chi tiết xem tại: https://phambinh.net/bai-viet/cac-ham-lam-viec-voi-string-trong-javascript/#split
+    const numbers = input.split(' ').map(Number)
+    const numbersToTimes = {}
+    for (let i = 0; i < numbers.length; i++) {
+      if (numbersToTimes[numbers[i]] === undefined) {
+        numbersToTimes[numbers[i]] = 0
+      }
+
+      numbersToTimes[numbers[i]] = numbersToTimes[numbers[i]] + 1
+    }
+
+    let uniqueNumbersCount = 0
+
+    for (let number in numbersToTimes) {
+      uniqueNumbersCount++
+    }
+    console.log('Số phần tử khác nhau:', uniqueNumbersCount)
+
+    for (let number in numbersToTimes) {
+      console.log('Số', number, 'xuất hiện', numbersToTimes[number], 'lần')
+    }
+  }
+  main()
+</script>

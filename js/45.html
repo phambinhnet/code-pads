@@ -1,0 +1,22 @@
+<script>
+  /**
+   * Đề bài: Cho một mảng n số nguyên. Kiểm tra xem mảng có đối xứng không. Mảng đối xứng là mảng khi viết theo chiều xuôi hay ngược lại đều được kết quả giống nhau.
+   * Nếu mảng đối xứng in ra “TRUE”, nếu không in ra “FALSE”.
+   */
+  function main() {
+    const input = prompt("Nhập dãy số nguyên, ngăn cách bằng dấu cách", 0)
+    // Split là hàm tách chuỗi thành mảng
+    // chi tiết xem tại: https://phambinh.net/bai-viet/cac-ham-lam-viec-voi-string-trong-javascript/#split
+    const numbers = input.split(' ').map(Number)
+    const middle = parseInt(numbers.length/2)
+    for (let i = 0; i < middle; i++) {
+      if (numbers[i] != numbers[numbers.length - i - 1]) {
+        console.log('FALSE')
+        return
+      }
+    }
+
+    console.log('TRUE')
+  }
+  main()
+</script>
