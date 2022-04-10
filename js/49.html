@@ -1,0 +1,47 @@
+<script>
+  /**
+   * Đề bài: Nhập vào một chuỗi. Đổi tất cả các chữ cái đầu câu thành hoa,
+   * các chữ khác thành chữ thường theo đúng chính tả.
+   * Chuỗi không chứa danh từ riêng, không chứa các dấu cách thừa.
+   * Các dấu câu có thể có gồm chấm (.), hỏi chấm (?), chấm than (!).
+   */
+  function main() {
+    let input = prompt("Nhập vào chuỗi", 'hom NaY tRoi dep QUA!')
+
+    const lowerCaseChars = 'abcdefghijklmnopqrstuvwxyz'.split('')
+    const upperCaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
+
+    const mapLowerCaseToUpperCase = {}
+    const mapUpperCaseToLowerCase = {}
+
+    for (let i  = 0; i < lowerCaseChars.length; i++) {
+      const lowerChar = lowerCaseChars[i]
+      const upperChar = upperCaseChars[i]
+
+      mapLowerCaseToUpperCase[lowerChar] = upperChar
+      mapUpperCaseToLowerCase[upperChar] = lowerChar
+    }
+
+    // ý tưởng:
+    // Đề bài yêu cầu viết hoa chữ cái đầu mỗi từ trong câu,
+    // vì thế ta cần tìm dấu hiệu nhận biết đâu là chữ cái đầu tiên của mỗi từ
+    // Dấu hiệu là khi xuất hiện một dấu cách, thì ký tự tiếp theo sẽ không phải là dấu cách, trừ từ đầu tiên trong câu
+    // để tổng quát hóa, ta luôn thêm dấu cách vào đầu câu cần kiểm tra
+    let sentence = String(' ' + input).split('')
+
+    for (let i = 1; i < sentence.length; i++) {
+      const char = sentence[i]
+
+      // Điều kiện sau đề nhận biết i có phải là vị trí của chữ cái cần viết hoa
+      if (sentence[i - 1] == ' ' && sentence[i] != ' ') {
+        sentence[i] = mapLowerCaseToUpperCase[char] || sentence[i]
+      } else {
+        sentence[i] = mapUpperCaseToLowerCase[char] || sentence[i]
+      }
+    }
+
+    sentence = sentence.join('')
+    console.log(sentence)
+  }
+  main()
+</script>

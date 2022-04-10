@@ -1,0 +1,18 @@
+<script>
+  /**
+   * Đề bài: Nhập vào họ tên của một người. Tách ra tên của người đó. Chuỗi nhập vào coi như đã được chuẩn hóa.
+   */
+  function main() {
+    let input = prompt("Nhập vào chuỗi", 'Dao Thi Hoa Hong Mai')
+    let personName = ''
+
+    for (let i = input.length - 1; i >= 0; i--) {
+      if (input[i] == ' ') {
+        break
+      }
+      personName = input[i] + personName
+    }
+    console.log(personName)
+  }
+  main()
+</script>

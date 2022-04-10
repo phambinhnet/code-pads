@@ -1,0 +1,23 @@
+<script>
+  /**
+   * Đề bài: Hãy nhập vào một đoạn văn, đếm xem trong đoạn văn đó có bao nhiêu từ.
+   */
+  function main() {
+    let input = prompt("Nhập vào chuỗi", 0)
+
+    // dấu hiệu để nhận biết một từ là khi xuất hiện một dấu cách, thì ký tự tiếp theo sẽ không phải là dấu cách, trừ từ đầu tiên của câu
+    // vì mình không muốn kiểm tra riêng cho trường hợp từ đầu tiên trong câu
+    // nên mình lúc nào cũng thêm một dấu cách vào đầu câu
+    input = ' ' + input
+
+    let soTu = 0
+    for (let i = 0; i < input.length - 1; i++) {
+      if (input[i] == ' ' && input[i + 1] != ' ') {
+        soTu++
+      }
+    }
+
+    console.log({ soTu })
+  }
+  main()
+</script>

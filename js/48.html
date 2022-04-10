@@ -1,0 +1,19 @@
+<script>
+  /**
+   * Đề bài: Nhập vào một chuỗi. Kiểm tra xem chuỗi đó có chứa tất cả là số hay không.
+   */
+  function main() {
+    // split với tham số là '' (string rỗng), sẽ tách chuỗi thành một mảng các ký tự
+    let input = prompt("Nhập vào chuỗi", '123123').split('')
+
+    for (let i = 0; i < input.length; i++) {
+      if (input[i] != Number(input[i])) {
+        console.log('FALSE')
+        return
+      }
+    }
+
+    console.log('TRUE')
+  }
+  main()
+</script>

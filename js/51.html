@@ -1,0 +1,31 @@
+<script>
+  /**
+   * Đề bài: Nhập vào một chuỗi và một ký tự. Đếm số lần xuất hiện của ký tự đó trong chuỗi đã cho và không phân biệt chữ hoa chữ thường
+   *
+   * Ý tưởng
+   * Việc đếm số lần ký tự xuất hiện trong câu không khó, tuy nhiên cần chú ý là ký tự cần "không phân biệt chữ hoa chữ thường"
+   * Ví dụ: HOC LAP TRINH TAI PHAMBINH.NET, chữ cần đếm là "a" => có 3 chữ a
+   * Vì thế, ta sẽ chuyển toàn bộ câu cần kiểm tra, và ký tự cần kiểm tra về dạng chữ thường trước khi đếm số lần xuất hiện
+   */
+  function main() {
+    let string = prompt("Nhập vào chuỗi", 'Dao Thi Hoa Hong MAI')
+    let char = prompt("Ký tự cần đếm", 'a')
+    let soLanXuaHien = 0
+
+    // Chuyển ký tự cần kiểm tra, và câu cần kiểm tra về dạng chữ thường
+    // toLocaleLowerCase() là hàm chuyển về ký tự chữ thường
+    // Chi tiết xem tại: https://phambinh.net/bai-viet/cac-ham-lam-viec-voi-string-trong-javascript/#toLocaleLowerCase
+    let lowerChar = char.toLocaleLowerCase()
+    let lowerString = string.toLocaleLowerCase()
+
+    for (let i = lowerString.length - 1; i >= 0; i--) {
+      let char = lowerString[i]
+      if (currentChar == lowerChar) {
+        soLanXuaHien++
+      }
+    }
+
+    console.log({ soLanXuaHien })
+  }
+  main()
+</script>

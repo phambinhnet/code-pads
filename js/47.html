@@ -1,0 +1,51 @@
+<script>
+  /**
+   * Đề bài: Cho một chuỗi là đường dẫn của một file trong máy tính.
+   * Đường dẫn đúng là đường dẫn không có các dấu gạch chéo (/) ở đầu, ở cuối, và ở giữa các folder chỉ có duy nhất một dấu gạch chéo để phân tách.
+   * Hãy xóa các dấu gạch chéo thừa để được một đường dẫn đúng.
+   * --
+   *
+   * Phân tích
+   * Bài toán chia làm 3 trường hợp, tương ứng với 3 cách xử lý như sau
+   * + Dấu / nằm ở đầu thì xóa dấu / ở đầu
+   * + Dấu / nằm ở cuối thì xóa dấu ở cuối
+   * + Dấu / nằm ở giữa thì xóa dấu / bị trùng nhau, giữ lại một
+   *
+   * Cả 3 cách trên, đều xuất hiện thao tác xóa đi dấu /, chỉ có vị trí dấu / cần xóa là khác nhau.
+   * Vì thế, chúng ta cần một giải thuật giúp xóa đi ký tự / nằm ở vị trí bất kỳ trong input
+   *
+   * Chúng ta sẽ tiến hành duyệt lần lượt các ký tự trong input, nếu ký tự đang duyệt là dấu / thì sẽ nhận biết
+   * nó thuộc trường hợp nào trong 3 trường hợp trên và có cách xử lý tương ứng
+   */
+  function main() {
+    // split với tham số là '' (string rỗng), sẽ tách chuỗi thành một mảng các ký tự
+    let input = prompt("Nhập vào chuỗi", '////laptrinh//////code//////chuanhoa.cpp/////').split('')
+    let i = 0
+
+    while (i < input.length) {
+      if (
+        i == 0 && input[i] == '/'
+        || i == input.length - 1 && input[i] == '/'
+        || input[i] == '/' && input[i + 1] == '/'
+      ) {
+        // Vòng lặp for này có tác dụng xóa đi ký tự tại vị trí i trong chuỗi
+        for (let j = i; j < input.length; j++) {
+          input[j] = input[j + 1]
+        }
+
+        // Với JS, có thể set lại length của mảng
+        // mỗi khi xóa đi 1 ký tự, thì ta sẽ chủ động giảm length của mảng đi 1 đơn vị
+        input.length = input.length - 1
+      } else {
+        i++
+      }
+    }
+
+    // nối lại input thành string
+    input = input.join('')
+
+    console.log({ input })
+  }
+  main()
+</script>
+
